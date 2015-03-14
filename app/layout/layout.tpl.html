@@ -1,0 +1,43 @@
+<md-sidenav layout="column" md-is-locked-open="$media('gt-md')" class="md-sidenav-left md-whiteframe-z2" md-component-id="menu" abindex="-1">
+    <md-toolbar class="md-medum-tall md-default-theme">
+        <h1 class="md-toolbar-tools" >
+        <a tabindex="0" ui-sref="root.app.home">
+            <i class="mdi-action-home"></i> Home
+        </a>
+      </h1>
+    </md-toolbar>
+    <md-content flex style="min-height:200px;">
+        <md-button ui-sref="root.app.account" class="menu">Comptes </md-button>
+    </md-content>
+</md-sidenav>
+
+<div md-swipe-right="$mdSidenav( 'menu' ).open()" layout="column" layout-fill="" tabindex="-1" role="main">
+    <md-toolbar class="md-mediu-tall app-toolbar ">
+        <div class="md-toolbar-tools" tabindex="0">
+            
+            <md-button class="text-white" hide-gt hide-gt-md ng-click="openMenu()" aria-label="Toggle Menu">
+                <i class="md-2x md-menu"></i>
+            </md-button>
+            <span ng-click="root.app.home">
+                IP BOX
+            </span>
+            <span flex></span>
+            <!-- 
+             <md-button ng-click="openSettings($event)" class="text-white" aria-label="Logoff">
+                <i class="md-2x md-settings"></i>
+            </md-button>
+             -->
+            <md-button ng-click="dialog()" class="text-white" aria-label="Logoff">
+                <i class="md-2x md-settings"></i>
+            </md-button>
+            <md-button ng-click="logut()" class="text-white" aria-label="Logoff">
+                <i class="md-2x md-help"></i>
+            </md-button>
+
+        </div>
+
+    </md-toolbar>
+    <md-content  layout-fill flex data-ui-view="container">
+    </md-content>
+
+</div>

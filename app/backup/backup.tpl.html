@@ -1,0 +1,107 @@
+<div>
+    <md-tabs class="md-accent" md-selected="selectedIndex">
+        <md-tab id="tab0" aria-controls="choose-extension">
+            Etape 1
+        </md-tab>
+        <md-tab id="tab1" aria-controls="choose-folders">
+            Etape 2
+        </md-tab>
+        <md-tab id="tab2" aria-controls="choose-encryption">
+            Etape 3
+        </md-tab>
+        <md-tab id="tab3" aria-controls="confirm">
+            Etape 4
+        </md-tab>
+    </md-tabs>
+    <ng-switch on="selectedIndex" class="tabpanel-container">
+        <div role="tabpanel" id="choose-folders" aria-labelledby="tab0" ng-switch-when="0" md-swipe-left="next()" md-swipe-right="previous()">
+            <md-content class="md-padding">
+                <h3>Choisissez les dossiers a sauvegarders</h3>
+                <div ng-repeat="disk in disks" layout="row">
+                    <md-checkbox ng-model="disk.default" aria-label="{{disk.name}}">
+                        {{disk.name}}
+                    </md-checkbox>
+                    <!-- <div layout-align="center center" layout="column">
+                        <md-button ng-click="details($event, ext.exts, $index)" class="md-raised">Plus</md-button>
+                    </div> -->
+                </div>
+                <md-button ng-click="addPath()">
+                    <i class="md-2x md-add"></i>
+                </md-button>
+            </md-content>
+        </div>
+        <div role="tabpanel" id="choose-extension" aria-labelledby="tab1" ng-switch-when="1" md-swipe-left="next()" md-swipe-right="previous()">
+            <md-content class="md-padding">
+                <h3>Choisissez vos type de fichiers</h3>
+                <div ng-repeat="ext in extensions" layout="row">
+                    <!-- <md-checkbox ng-model="ext.default" aria-label="{{ext.name}}"> -->
+                    <!-- </md-checkbox> -->
+                    <div layout-align="center center" layout="column">
+                        <md-card  ng-repeat="e in ext.exts">
+                    <h4>{{ext.name}}</h4>
+                        <span>{{e}}</span>
+                        </md-card>
+                        <!-- <md-button class="md-raised">Plus</md-button> -->
+                    </div>
+                </div>
+                <!--   
+                      <md-switch ng-model="more[ext.id]" aria-label="Switch 1">
+                    More {{ more[ext.id] }}
+                </md-switch>
+                <md-content ng-show="more[ext.id]">
+                    <md-checkbox ng-model="selected[ext.id]" ng-repeat="ext in extensions" aria-label="{{ext.name}}">
+                        {{ext.content}}
+                    </md-checkbox>
+                </md-content>
+                 -->
+                <div layout="row">
+                    <md-checkbox ng-model="ext.autres" aria-label="autres">
+                        Autre
+                    </md-checkbox>
+                    <div layout-align="center center" layout="column">
+                        <md-button aria-label="select autre extensions" ng-click="autres($event)" class="md-raised">Plus</md-button>
+                    </div>
+                </div>
+            </md-content>
+            <!-- adfadsf {{ selected | json }} -->
+        </div>
+        <div role="tabpanel" id="encrypt" aria-labelledby="tab2" ng-switch-when="2" md-swipe-left="next()" md-swipe-right="previous()">
+            <md-content class="md-padding">
+                <h3>Entrez votre mot de passe AES</h3>
+                <p>
+                    asdfadsfaf dsfk asfk </br>afadfkaskfsdfkasdfkasdfkdsf
+                </p>
+                <md-input-container>
+                    <label>Entrez votre mot de passe AES</label>
+                    <input ng-model="user.identifier" type="text">
+                </md-input-container>
+                <md-input-container>
+                    <label>Confirmer mot de passe</label>
+                    <input ng-model="user.confirm" type="text">
+                </md-input-container>
+                <md-input-container>
+                    <label>Entrez votre email</label>
+                    <input ng-model="user.confirm" type="text">
+                </md-input-container>
+                </md-contenat>
+        </div>
+        <div role="tabpanel" id="confirm" aria-labelledby="tab3" ng-switch-when="3" md-swipe-left="next()" md-swipe-right="previous()">
+            <md-content class="md-padding">
+                <h1>Confirmer</h1>
+            </md-content>
+        </div>
+    </ng-switch>
+    <md-content class="md-padding">
+        <md-button class="md-raised" ng-click="selectedIndex = selectedIndex - 1" ng-show="selectedIndex">
+            Precedant
+        </md-button>
+        <!-- Lorsqu'on est pas sur le dernier tab -->
+        <md-button class="md-raised md-primary" ng-hide="selectedIndex == 3" ng-click="selectedIndex = selectedIndex + 1">
+            Suivant
+        </md-button>
+        <!-- Lorsqu'on est sur le dernier tab -->
+        <md-button class="md-raised md-primary" ng-show="selectedIndex == 3">
+            Sauvegarder
+        </md-button>
+    </md-content>
+</div>

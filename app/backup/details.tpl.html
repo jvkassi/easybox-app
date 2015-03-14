@@ -1,0 +1,25 @@
+<md-dialog>
+    <md-content class="md-margin">
+        <h4>Details</h4>
+        <div ng-repeat="ext in extensions" layout="row">
+            <md-checkbox ng-model="ext.default" aria-label="{{ext.name}}">
+                {{ext.name}} {{ext.ext}}
+            </md-checkbox>
+            <div layout-align="center center" layout="column">
+
+            </div>
+
+            <!--     <md-switch ng-model="more[ext.id]" aria-label="Switch 1">
+                    More {{ more[ext.id] }}
+                </md-switch>
+                <md-content ng-show="more[ext.id]">
+                    <md-checkbox ng-model="selected[ext.id]" ng-repeat="ext in extensions" aria-label="{{ext.name}}">
+                        {{ext.content}}
+                    </md-checkbox>
+                </md-content>
+                 -->
+        </div>
+        <md-button ng-click="cancel()">Annuler</md-button>
+        <md-button ng-click="confirm()" class="md-primary md-raised">Valider</md-button>
+    </md-content>
+</md-dialog>

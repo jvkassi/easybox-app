@@ -1,0 +1,16 @@
+{
+  "generator-ng-poly": {
+    "markup": "html",
+    "appScript": "js",
+    "controllerAs": true,
+    "skipController": false,
+    "passFunc": true,
+    "namedFunc": true,
+    "testScript": "js",
+    "testFramework": "mocha",
+    "e2eTestFramework": "mocha",
+    "style": "scss",
+    "ngRoute": false,
+    "lastUsedModule": "restore"
+  }
+}
